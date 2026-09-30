@@ -1,4 +1,4 @@
-# agriBID 🌾
+# agriBID
 ### Smart Agricultural Trading, Storage & Auction Platform (Erode Hub)
 
 [![Go](https://img.shields.io/badge/Go-1.25+-00ADD8?style=flat&logo=go)](https://golang.org/)
@@ -13,37 +13,37 @@ It establishes a **Digital Crop Twin** for harvested produce lots, tracks their 
 
 ---
 
-## 🌟 Key Platform Features
+## Key Platform Features
 
-### 1. 🧠 Smart Sell vs Store Intelligence Engine
+### 1. Smart Sell vs Store Intelligence Engine
 - **Input Parameters**: Current spot market price, 30-day historical pricing trend, 10-day price forecast model, daily cold storage rate (₹/kg/day), quality moisture score, and warehouse degradation risk.
 - **Deterministic ROI Model**: Calculates the exact net gain margin (`forecasted_price - storage_cost - degradation_penalty`) against immediate liquidation value.
 - **Actionable Advice**: Emits explicit decision recommendations (`STORE`, `SELL_NOW`, `WAIT`) with human-readable economic rationale.
 
-### 2. 🌱 Digital Crop Twin Ledger
+### 2. Digital Crop Twin Ledger
 - Assigns unique, standardized lot numbers formatted as `ERD-CROP-YEAR-SEQ` (e.g., `ERD-TUR-2026-0001`).
 - Implements an auditable event ledger tracking the full lot state machine:
   `HARVESTED` → `QUALITY_VERIFIED` → `STORED` → `AUCTION` → `SOLD` → `PAYMENT` → `DELIVERED` → `COMPLETED`.
 
-### 3. 🏭 Atomic Warehouse Reservation Guard
+### 3. Atomic Warehouse Reservation Guard
 - Integrates cold storage depots and grain yards across Erode (Erode Central Cold Storage, Gobichettipalayam Agri Depot, Perundurai Logistics Yard).
 - **Concurrency & Overbooking Guard**: Database transaction checks prevent over-allocation (`available_capacity >= requested_capacity`), returning a strict HTTP 400 Overbooking Error on violations.
 
-### 4. ⚡ Real-Time Live Auction & Anti-Sniping Engine
+### 4. Real-Time Live Auction & Anti-Sniping Engine
 - Real-time bid streaming broadcast across all active browser sessions via WebSocket connections without requiring page reloads.
 - **Anti-Sniping Safeguard**: Valid bids received within 30 seconds of auction closing automatically trigger a 30-second auction extension.
 
-### 5. 💳 Payment Simulation & Logistics Workflow
+### 5. Payment Simulation & Logistics Workflow
 - Full transaction state machine (`PENDING` → `PAID` → `SETTLED`) with simulated payment gateway integration.
 - End-to-end logistics tracking (`CREATED` → `PICKED_UP` → `IN_TRANSIT` → `DELIVERED`). Marking a shipment as `DELIVERED` automatically completes the lot's Digital Twin lifecycle.
 
-### 6. 📱 Quality Certification & Public QR Verification
+### 6. Quality Certification & Public QR Verification
 - Licensed quality inspectors issue digital quality certificates (moisture %, purity %, grade, quality score).
 - Generates public verification URLs (`/verify/[lotId]`) displaying crop grade and certification details while preserving farmer privacy.
 
 ---
 
-## 🏗 System Architecture Flow
+## System Architecture Flow
 
 ```
                       Next.js 16 (TypeScript + Tailwind CSS)
@@ -66,7 +66,7 @@ It establishes a **Digital Crop Twin** for harvested produce lots, tracks their 
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend**: Next.js 16 (Turbopack), React 19, TypeScript, Tailwind CSS, Lucide Icons
 - **Backend Engine**: Go 1.25+, Chi Router, Gorilla WebSockets, JWT Authentication, dual-mode PostgreSQL / SQLite database driver
@@ -74,7 +74,7 @@ It establishes a **Digital Crop Twin** for harvested produce lots, tracks their 
 
 ---
 
-## 🔌 Core API Reference
+## Core API Reference
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -97,7 +97,7 @@ It establishes a **Digital Crop Twin** for harvested produce lots, tracks their 
 
 ---
 
-## ⚡ Quick Start & Running Locally
+## Quick Start & Running Locally
 
 ### Prerequisites
 - **Go**: Version 1.25 or higher
@@ -128,7 +128,7 @@ go test ./...
 
 ---
 
-## 🔑 Demo Access Profiles
+## Demo Access Profiles
 
 The platform includes pre-configured demo profiles for testing all roles:
 
@@ -140,7 +140,7 @@ The platform includes pre-configured demo profiles for testing all roles:
 
 ---
 
-## 🎬 Step-by-Step Walkthrough Guide
+## Step-by-Step Walkthrough Guide
 
 1. **Access Portal**: Navigate to `http://localhost:3000` and sign in or use the 1-Click Role Switcher in the navigation bar.
 2. **Crop Lot Registration**: As a Farmer (`farmer1@agribid.in`), go to **Crop Lots** (`/farmer/lots`) and register a new lot (e.g. 2,000 kg Turmeric).
